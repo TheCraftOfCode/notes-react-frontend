@@ -1,4 +1,43 @@
 .App {
   text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #202124;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
+.appCard
+{
+  
+  height: 70%;
+  width: 25%;
+  border: 1px solid #ea80fc;
+  background-color: #202124;
+
+}
+
+.appCardContent
+{
+  background-color: #202124;
+  height: 100%;
+  
+}
+
+
+
+@media only screen and (orientation : portrait)
+{
+  .appCard
+  {
+    height: 70%;
+    width: 90%;
+    outline: 1px solid #ea80fc;
+    background-color: #202124;
+  }
+}
+  
+  
+  

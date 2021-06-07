@@ -1,0 +1,135 @@
+.loginSignUpCard
+{
+  height: 70%;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  border: 2px solid #ea80fc;
+  background-color: #202124;
+
+}
+
+.loginSignUpCardContent
+{
+  background-color: #202124;
+  height: 100%; 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginSignUpForm
+{
+    padding-top: 10%;
+    width: 90%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.loginSignUpForm input
+{
+    width: 90%;
+    height: 12%;
+    margin-bottom: 8%;
+    background: none;
+    outline: none;
+    border: none;
+    color: white;
+    border-bottom: 1px solid gray;
+    font-size: 1em;
+    font-weight: 500;
+    
+
+}
+
+
+.loginSignUpForm button
+{
+    width: 30%;
+    height: 12%;
+    background-color: #ea80fc;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: 800;
+    color: #202124;
+}
+
+.loginSignUpForm button:hover
+{
+  background-color:#202124;
+  border:1px solid #ea80fc;
+  color: #ea80fc; 
+}
+
+.loginSignUpForm div
+{
+  margin-top: 10%;
+  color: #f4b1fe;
+  cursor: pointer;
+}
+
+.loginSignUpCardImg
+{
+  width: 40%;
+  background-color: #ea80fc;
+  height: 25%;
+  margin-top: 10%;
+  margin-bottom: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginSignUpCardImgOne
+{
+  width: 30%;
+  height: 5%;
+  background-color: white;
+  border-radius: 30px;
+  margin-bottom: 6%;
+  align-self: flex-start;
+  margin-left: 15%;
+}
+
+.loginSignUpCardImgTwo
+{
+  width: 70%;
+  height: 5%;
+  background-color: white;
+  border-radius: 30px;
+  margin-bottom: 4%;
+}
+
+.loginSignUpCardImgThree
+{
+  margin-top: 2%;
+  width: 30%;
+  height: 5%;
+  background-color: white;
+  border-radius: 30px;
+  align-self: flex-end;
+  margin-right: 15%;
+}
+
+
+@media only screen and (orientation : portrait)
+{
+  .loginSignUpCard
+  {
+    height: 70%;
+    width: 90%;
+    border: 2px solid #ea80fc;
+    background-color: #202124;
+  }
+}
+  
+  
+  
