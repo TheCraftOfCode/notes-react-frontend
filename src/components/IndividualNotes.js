@@ -7,18 +7,13 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+import "./notes.css"
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
+
   expand: {
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
@@ -29,9 +24,7 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  avatar: {
-    backgroundColor: red[500],
-  },
+
 }));
 
 export default function IndividualNotes(props) {
@@ -43,16 +36,19 @@ export default function IndividualNotes(props) {
   };
 
   return (
-    <Card className={classes.root}>
-      <CardHeader
-        title={props.each.title}
-      />
+    <Card className="notesCard">
+      <CardHeader title={props.each.title}/>
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
           {props.each.content.slice(0,100)}
-        </Typography>
       </CardContent>
       <CardActions disableSpacing>
+      <IconButton style={{marginLeft:"auto"}}>
+        <EditIcon />
+      </IconButton>
+      <IconButton>
+        <DeleteIcon />
+      </IconButton>
+      {props.each.content.lenght > 100 ?
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -61,12 +57,13 @@ export default function IndividualNotes(props) {
           aria-expanded={expanded}
           aria-label="show more"
         >
-          <ExpandMoreIcon />
-        </IconButton>
+           <ExpandMoreIcon /> 
+        </IconButton> : null }
+
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>{props.each.content.slice(100)}</Typography>
+          {props.each.content.slice(100)}
         </CardContent>
       </Collapse>
     </Card>

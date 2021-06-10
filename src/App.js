@@ -9,7 +9,7 @@ function App() {
   const [page,setPage] = useState();
 
   const handlePage = () => {
-    if(localStorage.getItem("token")) setPage(<Notes />)
+    if(localStorage.getItem("token")) setPage(<Notes handlePage={handlePage}/>)
     else setPage(<LoginSignUp handlePage={handlePage}/>)
   }
 
