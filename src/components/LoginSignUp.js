@@ -54,7 +54,7 @@ function LoginSignUp(props) {
         }
         console.log(data)
 /*
-        Axios.post("https://xpressnotes.herokuapp.com/api/auth/register",data).then(response => console.log(response)) */t
+        Axios.post("https://xpressnotes.herokuapp.com/api/auth/register",data).then(response => console.log(response)) */
     }
 
     const handleChange = () => {
