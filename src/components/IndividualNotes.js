@@ -11,6 +11,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import "./notes.css"
+import Axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -35,6 +36,11 @@ export default function IndividualNotes(props) {
     setExpanded(!expanded);
   };
 
+  const deleteNote = () => {
+    /*Axios.delete("https://xpressnotes.herokuapp.com/api/notes/"+props.each.id, 
+    {headers : {Authorization:"Bearer "+props.jwtToken}}).then((response) => {console.log(response)}) */
+  }
+
   return (
     <Card className="notesCard">
       <CardHeader title={props.each.title}/>
@@ -45,7 +51,7 @@ export default function IndividualNotes(props) {
       <IconButton style={{marginLeft:"auto"}}>
         <EditIcon />
       </IconButton>
-      <IconButton>
+      <IconButton onClick={deleteNote}>
         <DeleteIcon />
       </IconButton>
       {props.each.content.lenght > 100 ?
@@ -59,7 +65,7 @@ export default function IndividualNotes(props) {
         >
            <ExpandMoreIcon /> 
         </IconButton> : null }
-
+          {console.log(props)}
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>

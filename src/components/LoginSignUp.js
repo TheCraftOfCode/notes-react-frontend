@@ -2,13 +2,14 @@ import { Card, CardContent } from '@material-ui/core'
 import React, { useState } from 'react'
 import "./loginSignup.css"
 import Axios from "axios"
+import axios from 'axios';
 
 
 function LoginSignUp(props) {
 
-    const [name,setName] = useState();
-    const [email,setEmail] = useState();
-    const [password,setPassword] = useState();
+    const [name,setName] = useState("");
+    const [email,setEmail] = useState("");
+    const [password,setPassword] = useState("");
     const [login,setLogin] = useState(true);
     const [signUp,setSignUp] = useState(false);
 
@@ -51,8 +52,9 @@ function LoginSignUp(props) {
             email : email,
             password : password
         }
-
-        //SignUp API Call
+        console.log(data)
+/*
+        Axios.post("https://xpressnotes.herokuapp.com/api/auth/register",data).then(response => console.log(response)) */t
     }
 
     const handleChange = () => {

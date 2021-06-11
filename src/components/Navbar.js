@@ -10,7 +10,7 @@ function Navbar(props) {
     }
     return (
         <div className="navbar">
-            <div>Create Note</div>
+            <div onClick={props.handleModal}>Create Note</div>
             <div onClick={handleSignOut}>Sign Out</div>
         </div>
     )
