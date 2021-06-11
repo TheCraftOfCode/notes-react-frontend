@@ -20,15 +20,6 @@ function Notes(props) {
   const [notes, setNotes] = useState();
   const [view, setView] = useState();
 
-<<<<<<< HEAD
-  const getNotes = async () => {
-    const response = await axios.get(
-      "https://xpressnotes.herokuapp.com/api/notes",
-      { headers: { Authorization: "Bearer " + jwtToken } }
-    );
-    setNotes(response.data);
-  };
-=======
     const [jwtToken,setJwtToken] = useState(localStorage.getItem("token"));
     const [notes,setNotes] = useState();
     const [view,setView] = useState();
@@ -36,7 +27,6 @@ function Notes(props) {
 
     const handleModal = () => {setModal(!modal)}
 
->>>>>>> 49fe11dd8acc86717f49d2c703be270c4b64ea25
 
   useEffect(() => {
     getNotes();
@@ -48,16 +38,6 @@ function Notes(props) {
     );
   }, [notes]);
 
-<<<<<<< HEAD
-  return (
-    <div style={{ width: "100%", height: "100%" }}>
-      <Navbar handlePage={props.handlePage} />
-      <Container>
-        <div className="notes">{view}</div>
-      </Container>
-    </div>
-  );
-=======
     useEffect(() => {
         setView(notes?.map(each => <IndividualNotes each={each} jwtToken={jwtToken}  /> ))
     }, [notes])
@@ -76,7 +56,6 @@ function Notes(props) {
             </Modal>
         </div>
     )
->>>>>>> 49fe11dd8acc86717f49d2c703be270c4b64ea25
 }
 
 export default Notes;
