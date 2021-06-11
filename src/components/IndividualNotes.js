@@ -14,32 +14,21 @@ import "./notes.css"
 import Axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
+
   expand: {
-    transform: "rotate(0deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
     }),
   },
   expandOpen: {
-    transform: "rotate(180deg)",
+    transform: 'rotate(180deg)',
   },
-  avatar: {
-    backgroundColor: (note) => {
-      if (note.category === "note") {
-        return yellow[700];
-      }
-      if (note.category === "important") {
-        return green[500];
-      }
-      if (note.category === "todos") {
-        return pink[500];
-      }
-    },
-  },
+
 }));
 
-export default function IndividualNotes({ note }) {
+export default function IndividualNotes(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -80,11 +69,8 @@ export default function IndividualNotes({ note }) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography variant="body2" color="textSecondary">
-            {note.content.slice(100)}
-          </Typography>
+          {props.each.content.slice(100)}
         </CardContent>
-      </Card>
-    </div>
-  );
-}
+      </Collapse>
+    </Card>
+  );}
