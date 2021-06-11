@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardContent from "@material-ui/core/CardContent";
-import IconButton from "@material-ui/core/IconButton";
-import "./notes.css";
-import { DeleteOutlined } from "@material-ui/icons";
-import { Avatar, Typography } from "@material-ui/core";
-import { yellow, green, pink } from "@material-ui/core/colors";
-=======
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -24,7 +12,6 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import "./notes.css"
 import Axios from 'axios';
->>>>>>> 49fe11dd8acc86717f49d2c703be270c4b64ea25
 
 const useStyles = makeStyles((theme) => ({
   expand: {
