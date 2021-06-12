@@ -19,6 +19,7 @@ function Notes(props) {
     const getNotes = () => {
         axios.get("https://xpressnotes.herokuapp.com/api/notes", {headers : {Authorization:"Bearer "+jwtToken}})
         .then((response) => setNotes(response.data))
+        console.log(notes)
     }
 
     useEffect(() => {
@@ -26,14 +27,14 @@ function Notes(props) {
     }, [])
 
     useEffect(() => {
-        setView(notes?.map(each => <IndividualNotes each={each} jwtToken={jwtToken}  /> ))
+        setView(notes?.map(each => <IndividualNotes each={each} jwtToken={jwtToken} getNotes={getNotes} /> ))
     }, [notes])
 
     return (
         <div style={{width:"100%",height:"100%"}}>
             <Navbar handlePage={props.handlePage} handleModal={handleModal}/>
             <div className="notes">
-                {view}
+                {notes?.length === 0 ? <div className="notesNoNotes">No notes. Get started...</div> :  view }
             </div>
             <Modal 
                 open = {modal}

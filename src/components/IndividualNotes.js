@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
 
   expand: {
     transform: 'rotate(0deg)',
-    marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
     }),
@@ -37,24 +36,36 @@ export default function IndividualNotes(props) {
   };
 
   const deleteNote = () => {
-    /*Axios.delete("https://xpressnotes.herokuapp.com/api/notes/"+props.each.id, 
-    {headers : {Authorization:"Bearer "+props.jwtToken}}).then((response) => {console.log(response)}) */
+    
+    Axios.delete("https://xpressnotes.herokuapp.com/api/notes/"+props.each._id, 
+    {headers : {Authorization:"Bearer "+props.jwtToken}})
+    .then((response) => {
+      props.getNotes()}) 
+  }
+
+  const noteColor = () => {
+    if(props.each.category === "important") return "#f75a5b"
+    if(props.each.category === "note") return "#ffe02c"
+    if(props.each.category === "todo") return "#68eb5c"
   }
 
   return (
-    <Card className="notesCard">
+    <Card className="notesCard" style={{backgroundColor: noteColor()}}>
       <CardHeader title={props.each.title}/>
-      <CardContent>
-          {props.each.content.slice(0,100)}
-      </CardContent>
+      {!expanded ? 
+        <CardContent>
+            {props.each.content.slice(0,200)} {props.each.content.length > 200 ? <span>...</span> : null }
+        </CardContent> : null }
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          {props.each.content}
+        </CardContent>
+      </Collapse>
       <CardActions disableSpacing>
-      <IconButton style={{marginLeft:"auto"}}>
-        <EditIcon />
-      </IconButton>
-      <IconButton onClick={deleteNote}>
+      <IconButton style={{marginLeft:"auto"}} onClick={deleteNote}>
         <DeleteIcon />
       </IconButton>
-      {props.each.content.lenght > 100 ?
+      {props.each.content.length > 200 ?
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -67,10 +78,6 @@ export default function IndividualNotes(props) {
         </IconButton> : null }
           {console.log(props)}
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          {props.each.content.slice(100)}
-        </CardContent>
-      </Collapse>
+      
     </Card>
   );}

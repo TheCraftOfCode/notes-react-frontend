@@ -13,18 +13,11 @@ function LoginSignUp(props) {
     const [login,setLogin] = useState(true);
     const [signUp,setSignUp] = useState(false);
 
-    const handleValidation = () => {
-        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email) && password !== "") return true;
-        else return false;
-    }
+    const [loginError,setLoginError] = useState(false);
 
+    
     const handleLogin = (event) => {
         event.preventDefault()
-        if(!handleValidation()) 
-        {
-            window.alert("Invalid Email Address or Password")
-            return
-        }
         const data = {
             email : email,
             password : password
@@ -34,27 +27,21 @@ function LoginSignUp(props) {
             if(response?.data?.token) 
             {
                 localStorage.setItem("token", response.data.token) 
-                localStorage.setItem("email",email)
             }
-        }).then(() => props.handlePage());
+        }).then(() => props.handlePage()).catch(error => setLoginError(true));
     }
 
     const handleSignUp = (event) => {
         event.preventDefault()
-        if(!handleValidation() || name === "") 
-        {
-            window.alert("Invalid Name, Email or Password")
-            return
-        }
-
         const data = {
             name : name,
             email : email,
             password : password
         }
-        console.log(data)
-/*
-        Axios.post("https://xpressnotes.herokuapp.com/api/auth/register",data).then(response => console.log(response)) */
+        
+        Axios.post("https://xpressnotes.herokuapp.com/api/auth/register",data)
+        .then(response => console.log(response)) 
+
     }
 
     const handleChange = () => {
@@ -72,38 +59,45 @@ function LoginSignUp(props) {
                         <div className={"loginSignUpCardImgTwo"}></div>
                         <div className={"loginSignUpCardImgThree"}></div>
                     </div>
-                <form className={"loginSignUpForm"}>
 
-                    {
-                        signUp ? <input 
-                                    type="text"
-                                    placeholder="Name" 
-                                    onChange ={ event => event.target.value === " " ? null : setName(event.target.value) }
-                                    value = {name} 
-                                /> : null
+                    {loginError ? <span className="loginSignUpInvalidCred">Incorrect Username or Password</span> : null}
+                    
 
-                    }
+                    <form className={"loginSignUpForm"}>
 
-                    <input 
-                        type="text" 
-                        placeholder="Email"
-                        onChange = { event => event.target.value === " " ? null : setEmail(event.target.value) }
-                        value={email}
-                        />
-                        
-                    <input 
-                        type="password" 
-                        placeholder="Password"
-                        onChange = { event => event.target.value === " " ? null : setPassword(event.target.value) }
-                        value={password}
-                        />
+                        {
+                            signUp ? <input 
+                                        type="text"
+                                        placeholder="Name" 
+                                        onChange ={ event => event.target.value === " " ? null : setName(event.target.value) }
+                                        value = {name} 
+                                    /> : null
 
-                    {login ? <button type="submit" onClick={handleLogin}>Login</button> : null}
-                    {signUp ? <button type="submit" onClick={handleSignUp}>SignUp</button> : null}
+                        }
 
-                    {login ? <div onClick={handleChange}>New Here ? Sign Up.</div> : null}
-                    {signUp ? <div onClick={handleChange}>Already have an account ? Login</div> : null}
-                </form>
+                        <input 
+                            type="text" 
+                            placeholder="Email"
+                            onChange = { event => event.target.value === " " ? null : setEmail(event.target.value) }
+                            value={email}
+                            />
+                            
+                            
+                        <input 
+                            type="password" 
+                            placeholder="Password"
+                            onChange = { event => event.target.value === " " ? null : setPassword(event.target.value) }
+                            value={password}
+                            />
+
+
+
+                        {login ? <button type="submit" onClick={handleLogin}>Login</button> : null}
+                        {signUp ? <button type="submit" onClick={handleSignUp}>SignUp</button> : null}
+
+                        {login ? <div onClick={handleChange}>New Here ? Sign Up.</div> : null}
+                        {signUp ? <div onClick={handleChange}>Already have an account ? Login</div> : null}
+                    </form>
             </CardContent>  
         </Card>
     )

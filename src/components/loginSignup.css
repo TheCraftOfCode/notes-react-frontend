@@ -119,6 +119,12 @@
   margin-right: 15%;
 }
 
+.loginSignUpInvalidCred
+{
+  margin-top: -5%;
+  color: red;
+  margin-bottom: 8%;
+}
 
 @media only screen and (orientation : portrait)
 {

@@ -8,8 +8,42 @@
 
 .notesCard
 {
-    width: 25vh;
-    height: 25vh;
+    width: 31vh;
+    min-height: 33vh;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin-left: 3%;
     margin-top: 3%;
+}
+
+.notesNoNotes
+{
+    margin: auto;
+    font-size: 1.5em;
+}
+
+@media only screen and (orientation : portrait)
+{
+    .notes
+    {
+        width: 100%;
+        height: 95%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .notesCard
+    {
+        width: 80vw;
+        min-height: 80vw;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 3%;
+        margin-top: 5%;
+    }
 }

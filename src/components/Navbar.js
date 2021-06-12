@@ -5,7 +5,6 @@ function Navbar(props) {
 
     const handleSignOut = () => {
         localStorage.removeItem("email")
-        localStorage.removeItem("token")
         props.handlePage()
     }
     return (

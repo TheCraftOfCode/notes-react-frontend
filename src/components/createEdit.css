@@ -61,3 +61,18 @@
 {
     outline:none
 }
+
+.createEditBottomRow
+{
+    display: flex;
+    justify-content: space-between;
+    width: 98%;
+    color: white;
+}
+
+.createEditRadio
+{
+    display: flex;
+    width: 25%;
+    justify-content: space-between;
+}
