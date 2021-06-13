@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import IndividualNotes from "./IndividualNotes"
 import "./notes.css"
 import Navbar from "./Navbar"
-import { Modal } from '@material-ui/core';
+import { Container, Modal } from '@material-ui/core';
 import CreateEdit from "./CreateEdit"
 import NoNotes from "./NoNotes"
 import Loader from "./Loader"
@@ -37,7 +37,7 @@ function Notes(props) {
             <Navbar handlePage={props.handlePage} handleModal={handleModal}/>
             <div className="notes">
                 {notes ? 
-                    notes?.length === 0 ? <NoNotes handleModal={handleModal} /> :  view
+                    notes?.length === 0 ? <NoNotes handleModal={handleModal} /> :  <Container>{view}</Container>
                     : <Loader />
                 }
             </div>
