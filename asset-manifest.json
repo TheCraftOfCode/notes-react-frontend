@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/TheCraftOfCode/notes-react-frontend/static/css/main.610e3dfe.chunk.css",
-    "main.js": "/TheCraftOfCode/notes-react-frontend/static/js/main.44f8bf66.chunk.js",
-    "main.js.map": "/TheCraftOfCode/notes-react-frontend/static/js/main.44f8bf66.chunk.js.map",
-    "runtime-main.js": "/TheCraftOfCode/notes-react-frontend/static/js/runtime-main.ea8006fe.js",
-    "runtime-main.js.map": "/TheCraftOfCode/notes-react-frontend/static/js/runtime-main.ea8006fe.js.map",
-    "static/js/2.6c0e9745.chunk.js": "/TheCraftOfCode/notes-react-frontend/static/js/2.6c0e9745.chunk.js",
-    "static/js/2.6c0e9745.chunk.js.map": "/TheCraftOfCode/notes-react-frontend/static/js/2.6c0e9745.chunk.js.map",
-    "static/js/3.06052114.chunk.js": "/TheCraftOfCode/notes-react-frontend/static/js/3.06052114.chunk.js",
-    "static/js/3.06052114.chunk.js.map": "/TheCraftOfCode/notes-react-frontend/static/js/3.06052114.chunk.js.map",
-    "index.html": "/TheCraftOfCode/notes-react-frontend/index.html",
-    "static/css/main.610e3dfe.chunk.css.map": "/TheCraftOfCode/notes-react-frontend/static/css/main.610e3dfe.chunk.css.map",
-    "static/js/2.6c0e9745.chunk.js.LICENSE.txt": "/TheCraftOfCode/notes-react-frontend/static/js/2.6c0e9745.chunk.js.LICENSE.txt"
+    "main.css": "/notes-react-frontend/static/css/main.610e3dfe.chunk.css",
+    "main.js": "/notes-react-frontend/static/js/main.44f8bf66.chunk.js",
+    "main.js.map": "/notes-react-frontend/static/js/main.44f8bf66.chunk.js.map",
+    "runtime-main.js": "/notes-react-frontend/static/js/runtime-main.c780d088.js",
+    "runtime-main.js.map": "/notes-react-frontend/static/js/runtime-main.c780d088.js.map",
+    "static/js/2.6c0e9745.chunk.js": "/notes-react-frontend/static/js/2.6c0e9745.chunk.js",
+    "static/js/2.6c0e9745.chunk.js.map": "/notes-react-frontend/static/js/2.6c0e9745.chunk.js.map",
+    "static/js/3.06052114.chunk.js": "/notes-react-frontend/static/js/3.06052114.chunk.js",
+    "static/js/3.06052114.chunk.js.map": "/notes-react-frontend/static/js/3.06052114.chunk.js.map",
+    "index.html": "/notes-react-frontend/index.html",
+    "static/css/main.610e3dfe.chunk.css.map": "/notes-react-frontend/static/css/main.610e3dfe.chunk.css.map",
+    "static/js/2.6c0e9745.chunk.js.LICENSE.txt": "/notes-react-frontend/static/js/2.6c0e9745.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ea8006fe.js",
+    "static/js/runtime-main.c780d088.js",
     "static/js/2.6c0e9745.chunk.js",
     "static/css/main.610e3dfe.chunk.css",
     "static/js/main.44f8bf66.chunk.js"
