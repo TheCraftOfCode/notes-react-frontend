@@ -2,8 +2,6 @@ import { Card, CardContent } from '@material-ui/core'
 import React, { useState } from 'react'
 import "./loginSignup.css"
 import Axios from "axios"
-import axios from 'axios';
-
 
 function LoginSignUp(props) {
 
@@ -15,9 +13,7 @@ function LoginSignUp(props) {
 
     const [error,setError] = useState();
 
-    
-    const handleLogin = (event) => {
-        event.preventDefault()
+    const handleLogin = () => {
         const data = {
             email : email,
             password : password
@@ -27,21 +23,32 @@ function LoginSignUp(props) {
             if(response?.data?.token) 
             {
                 localStorage.setItem("token", response.data.token) 
+                localStorage.setItem("email", email) 
+                console.log(response.data)
             }
         }).then(() => props.handlePage()).catch(error => setError("Incorrect Username or Password"));
     }
 
-    const handleSignUp = (event) => {
-        event.preventDefault()
+    const handleSignUp = () => {
         const data = {
             name : name,
             email : email,
             password : password
         }
-        
-        Axios.post("http://xpressnotes.herokuapp.com/api/auth/register",data)
-        .then(response => console.log(response)) 
+        Axios.post("https://xpressnotes.herokuapp.com/api/auth/register",data,{headers : {"Content-type" : "application/json"}})
+        .then(response => handleLogin(null)).catch(error => setError("Invalid data"))
+    }
 
+    
+    const handleLoginClick = (event) => {
+        event.preventDefault()
+        handleLogin()
+    }
+
+    const handleSignUpClick = (event) => {
+        event.preventDefault()
+        handleSignUp()
+        
     }
 
     const handleChange = () => {
@@ -93,8 +100,8 @@ function LoginSignUp(props) {
 
 
 
-                        {login ? <button type="submit" onClick={handleLogin}>Login</button> : null}
-                        {signUp ? <button type="submit" onClick={handleSignUp}>SignUp</button> : null}
+                        {login ? <button type="submit" onClick={handleLoginClick}>Login</button> : null}
+                        {signUp ? <button type="submit" onClick={handleSignUpClick}>SignUp</button> : null}
 
                         {login ? <div onClick={handleChange}>New Here ? Sign Up.</div> : null}
                         {signUp ? <div onClick={handleChange}>Already have an account ? Login</div> : null}
