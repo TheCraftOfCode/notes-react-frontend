@@ -5,6 +5,8 @@ import "./notes.css"
 import Navbar from "./Navbar"
 import { Modal } from '@material-ui/core';
 import CreateEdit from "./CreateEdit"
+import NoNotes from "./NoNotes"
+import Loader from "./Loader"
 
 function Notes(props) {
 
@@ -34,7 +36,10 @@ function Notes(props) {
         <div style={{width:"100%",height:"100%"}}>
             <Navbar handlePage={props.handlePage} handleModal={handleModal}/>
             <div className="notes">
-                {notes?.length === 0 ? <div className="notesNoNotes">No notes. Get started...</div> :  view }
+                {notes ? 
+                    notes?.length === 0 ? <NoNotes handleModal={handleModal} /> :  view
+                    : <Loader />
+                }
             </div>
             <Modal 
                 open = {modal}

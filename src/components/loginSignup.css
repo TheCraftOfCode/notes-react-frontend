@@ -122,8 +122,8 @@
 .loginSignUpInvalidCred
 {
   margin-top: -5%;
-  color: red;
-  margin-bottom: 8%;
+  color: #f75a5b;
+  margin-bottom: 2%;
 }
 
 @media only screen and (orientation : portrait)

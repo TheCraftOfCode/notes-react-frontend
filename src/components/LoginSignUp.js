@@ -13,7 +13,7 @@ function LoginSignUp(props) {
     const [login,setLogin] = useState(true);
     const [signUp,setSignUp] = useState(false);
 
-    const [loginError,setLoginError] = useState(false);
+    const [error,setError] = useState();
 
     
     const handleLogin = (event) => {
@@ -28,7 +28,7 @@ function LoginSignUp(props) {
             {
                 localStorage.setItem("token", response.data.token) 
             }
-        }).then(() => props.handlePage()).catch(error => setLoginError(true));
+        }).then(() => props.handlePage()).catch(error => setError("Incorrect Username or Password"));
     }
 
     const handleSignUp = (event) => {
@@ -39,7 +39,7 @@ function LoginSignUp(props) {
             password : password
         }
         
-        Axios.post("https://xpressnotes.herokuapp.com/api/auth/register",data)
+        Axios.post("http://xpressnotes.herokuapp.com/api/auth/register",data)
         .then(response => console.log(response)) 
 
     }
@@ -47,6 +47,7 @@ function LoginSignUp(props) {
     const handleChange = () => {
         setLogin(!login);
         setSignUp(!signUp);
+        setError();
     }
 
     return (
@@ -60,7 +61,7 @@ function LoginSignUp(props) {
                         <div className={"loginSignUpCardImgThree"}></div>
                     </div>
 
-                    {loginError ? <span className="loginSignUpInvalidCred">Incorrect Username or Password</span> : null}
+                    {error ? <span className="loginSignUpInvalidCred">{error}</span> : null}
                     
 
                     <form className={"loginSignUpForm"}>
