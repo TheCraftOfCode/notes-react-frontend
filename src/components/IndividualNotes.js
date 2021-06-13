@@ -59,9 +59,9 @@ export default function IndividualNotes(props) {
   };
 
   const noteColor = () => {
-    if (props.each.category === "important") return "#f75a5b";
+    if (props.each.category === "important") return "#fbadad";
     if (props.each.category === "note") return "#fff096";
-    if (props.each.category === "todo") return "#68eb5c";
+    if (props.each.category === "todo") return "#b4f5ae";
   };
 
   return (
@@ -110,7 +110,7 @@ export default function IndividualNotes(props) {
         </CardActions>
       </Card> */}
       <div>
-        <Card elevation={1}>
+        <Card elevation={1} style={{ backgroundColor: noteColor() }}>
           <CardHeader
             avatar={
               <Avatar className={classes.avatar}>
@@ -128,14 +128,14 @@ export default function IndividualNotes(props) {
           <CardContent>
             {!expanded ? (
               <CardContent>
-                {props.each.content.slice(0, 200)}{" "}
-                {props.each.content.length > 200 ? <span>...</span> : null}
+                {props.each.content.slice(0, 80)}{" "}
+                {props.each.content.length > 80 ? <span>...</span> : null}
               </CardContent>
             ) : null}
             <Collapse in={expanded} timeout="auto" unmountOnExit>
               <CardContent>{props.each.content}</CardContent>
             </Collapse>
-            {props.each.content.length > 200 ? (
+            {props.each.content.length > 80 ? (
               <IconButton
                 className={clsx(classes.expand, {
                   [classes.expandOpen]: expanded,
